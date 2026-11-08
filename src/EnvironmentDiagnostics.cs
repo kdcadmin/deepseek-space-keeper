@@ -1,0 +1,13 @@
+using System;using System.Collections.Generic;using System.IO;using System.Text;using System.Threading;using System.Web.Script.Serialization;
+namespace ClearDisk {
+ internal static class EnvironmentDiagnostics {
+  internal static string Capture(IAdministrationBackend backend,CancellationToken token,Action<string> progress){return Capture(backend,token,progress,AppDomain.CurrentDomain.BaseDirectory);}
+  internal static string Capture(IAdministrationBackend backend,CancellationToken token,Action<string> progress,string application){
+   var checks=new List<object>();foreach(AdministrationKind kind in Enum.GetValues(typeof(AdministrationKind))){token.ThrowIfCancellationRequested();if(progress!=null)progress("只读检查："+kind);try{var records=backend.Read(kind,token);checks.Add(new{Capability=kind.ToString(),State="ReadSucceeded",Count=records.Length,Message="只验证库存读取，未执行变更"});}catch(OperationCanceledException){throw;}catch(Exception e){checks.Add(new{Capability=kind.ToString(),State="UnavailableOrDenied",Count=0,Message=e.Message});}}
+   object provenance;var json=new JavaScriptSerializer{MaxJsonLength=16777216};try{provenance=json.DeserializeObject(new RuleReleaseManager(application).Diagnostics());}catch(Exception e){provenance=new{State="Unavailable",Error=e.Message};}
+   string manifestHash=null;using(var resource=System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("ClearDisk.BleachBit.Hashes"))if(resource!=null)using(var hash=System.Security.Cryptography.SHA256.Create())manifestHash=BitConverter.ToString(hash.ComputeHash(resource)).Replace("-","");
+   return json.Serialize(new{Schema=1,Timestamp=DateTime.UtcNow.ToString("o"),ApplicationVersion=System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(),Engine="BleachBit 5.0.2 C-drive adaptation",RuleProvenance=provenance,PinnedRuntimeManifestSHA256=manifestHash,OS=Environment.OSVersion.VersionString,Architecture=Environment.Is64BitProcess?"x64":"x86",Context=CompatibleCleanupEngine.CurrentContext(),Mode="ReadOnly",MutationOperationsRun=false,Checks=checks,OtherWindowsVersionsTested=false});
+  }
+  internal static void SaveNew(string target,string json){string path=NativeFiles.Normalize(target);if(Path.GetExtension(path)!=".json"||!SafetyPolicy.IsWithin(path,Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)))throw new IOException("诊断只保存到当前用户目录的新JSON文件。");using(var pins=new NativeFiles.ParentLocks(path))using(var stream=new FileStream(path,FileMode.CreateNew,FileAccess.Write,FileShare.Read))using(var writer=new StreamWriter(stream,new UTF8Encoding(true)))writer.Write(json);}
+ }
+}

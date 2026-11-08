@@ -1,0 +1,9 @@
+using System;using System.Drawing;using System.Windows.Forms;
+namespace ClearDisk {
+ internal sealed class FrozenCleanupConfirmation:Form {
+  internal FrozenCleanupConfirmation(string warning):this(warning,null){}
+  internal FrozenCleanupConfirmation(string warning,StructuredPlan plan){Text="确认已预览的固定清单";Font=new Font("Microsoft YaHei UI",9);Size=new Size(900,700);MinimumSize=new Size(700,500);StartPosition=FormStartPosition.CenterParent;var layout=new TableLayoutPanel{Dock=DockStyle.Fill,Padding=new Padding(16),RowCount=4,ColumnCount=1};layout.RowStyles.Add(new RowStyle(SizeType.Absolute,84));layout.RowStyles.Add(new RowStyle(SizeType.Percent,100));layout.RowStyles.Add(new RowStyle(SizeType.Absolute,45));layout.RowStyles.Add(new RowStyle(SizeType.Absolute,45));Controls.Add(layout);
+   var capacity=new Label{Name="confirmationCapacity",Dock=DockStyle.Fill,Font=new Font(Font.FontFamily,17,FontStyle.Bold),ForeColor=Color.FromArgb(0,105,96),Text=plan==null?"请核对固定清单":("本次已选："+CleanupCapacity.Files(plan.Bytes,plan.FileCount)+"\r\n"+(plan.BackupFiles?"备份继续占用C盘空间":"文件内容不备份，永久处理"))};layout.Controls.Add(capacity,0,0);
+   layout.Controls.Add(new TextBox{ReadOnly=true,Multiline=true,ScrollBars=ScrollBars.Both,WordWrap=false,Dock=DockStyle.Fill,Text=warning},0,1);var acknowledge=new CheckBox{Dock=DockStyle.Fill,Text="我已核对文件明细、备份方式及上述每项影响，确认执行"};layout.Controls.Add(acknowledge,0,2);var actions=new FlowLayoutPanel{Dock=DockStyle.Fill,FlowDirection=FlowDirection.RightToLeft};var confirm=new Button{Text="确认清理",Enabled=false,DialogResult=DialogResult.OK,Width=130};var back=new Button{Text="返回核对",DialogResult=DialogResult.Cancel,Width=130};actions.Controls.Add(confirm);actions.Controls.Add(back);layout.Controls.Add(actions,0,3);acknowledge.CheckedChanged+=delegate{confirm.Enabled=acknowledge.Checked;};CancelButton=back;AcceptButton=back;}
+ }
+}
