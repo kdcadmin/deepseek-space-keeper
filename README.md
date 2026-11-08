@@ -1,5 +1,9 @@
 [English](README.md) | [中文](README.zh-CN.md)
 
+![Home](assets/guide/home.png)
+
+The home page. The three cards open C: drive cleanup, junk cleanup, and AI cache cleanup.
+
 ![cover](assets/cover-16x9.jpg)
 
 # 大肥鱼空间管家
@@ -19,10 +23,6 @@ Junk cleanup while a scan is running. The dish is a trash can. The can is full a
 ![AI cache scan](assets/guide/ai-scan.png)
 
 AI cache cleanup while a scan is running. The glowing shape is the cache. Only regenerable caches and logs from Codex, Cursor, and DeepSeek are listed.
-
-![Home](assets/guide/home.png)
-
-The home page. The three cards open C: drive cleanup, junk cleanup, and AI cache cleanup.
 
 ![Idle pet](assets/guide/pet-idle.png)
 

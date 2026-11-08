@@ -1,5 +1,9 @@
 [English](README.md) | [中文](README.zh-CN.md)
 
+![首页](assets/guide/home.png)
+
+首页。三张卡片分别进入 C 盘清理、垃圾清理和 AI 缓存。
+
 ![封面](assets/cover-16x9.jpg)
 
 # 大肥鱼空间管家
@@ -19,10 +23,6 @@ C 盘清理正在扫描。她看着雷达圆盘，扫到多少，画面上就有
 ![AI缓存扫描](assets/guide/ai-scan.png)
 
 AI 缓存正在扫描。旁边发光的是缓存。只列出 Codex、Cursor、DeepSeek 里可以重新生成的缓存和日志。
-
-![首页](assets/guide/home.png)
-
-首页。三张卡片分别进入 C 盘清理、垃圾清理和 AI 缓存。
 
 ![桌宠待机](assets/guide/pet-idle.png)
 
