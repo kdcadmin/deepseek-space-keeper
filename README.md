@@ -2,9 +2,9 @@
 
 ![cover](assets/cover-16x9.jpg)
 
-# deepseek-space-keeper
+# 大肥鱼空间管家
 
-deepseek-space-keeper is a Windows cleaner for the C: drive. It does three things: clean the C: drive, remove system junk, and clear regenerable caches from Codex, Cursor, and DeepSeek. Every cleanup is previewed and confirmed first. Nothing is selected automatically, and chats, credentials, and model files are left untouched.
+大肥鱼空间管家 is a Windows cleaner for the C: drive. It does three things: clean the C: drive, remove system junk, and clear regenerable caches from Codex, Cursor, and DeepSeek. Every cleanup is previewed and confirmed first. Nothing is selected automatically, and chats, credentials, and model files are left untouched.
 
 ## Build
 
