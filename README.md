@@ -39,3 +39,5 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File build.ps1
 ```
 
 The build does not delete files. The desktop pet is copied next to the executable.
+
+![](assets/guide/star-meme.jpg)

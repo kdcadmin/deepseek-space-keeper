@@ -39,3 +39,5 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File build.ps1
 ```
 
 构建不会删除文件。桌宠会一起复制到程序旁边。
+
+![](assets/guide/star-meme.jpg)
