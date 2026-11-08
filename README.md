@@ -1,9 +1,5 @@
 [English](README.md) | [中文](README.zh-CN.md)
 
-![Home](assets/guide/home.png)
-
-The home page. The three cards open C: drive cleanup, junk cleanup, and AI cache cleanup.
-
 ![cover](assets/cover-16x9.jpg)
 
 # 大肥鱼空间管家
@@ -11,6 +7,10 @@ The home page. The three cards open C: drive cleanup, junk cleanup, and AI cache
 大肥鱼空间管家 is a Windows cleaner for the C: drive. It does three things: clean the C: drive, remove system junk, and clear regenerable caches from Codex, Cursor, and DeepSeek. Every cleanup is previewed and confirmed first. Nothing is selected automatically, and chats, credentials, and model files are left untouched.
 
 ## What the pictures show
+
+![Home](assets/guide/home.png)
+
+The home page. The three cards open C: drive cleanup, junk cleanup, and AI cache cleanup.
 
 ![C: drive scan](assets/guide/c-drive-scan.png)
 

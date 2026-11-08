@@ -1,9 +1,5 @@
 [English](README.md) | [中文](README.zh-CN.md)
 
-![首页](assets/guide/home.png)
-
-首页。三张卡片分别进入 C 盘清理、垃圾清理和 AI 缓存。
-
 ![封面](assets/cover-16x9.jpg)
 
 # 大肥鱼空间管家
@@ -11,6 +7,10 @@
 大肥鱼空间管家是 Windows 上的 C 盘清理工具。它做三件事：清理 C 盘、清理系统垃圾，以及清理 Codex、Cursor 和 DeepSeek 里可以重新生成的缓存。每次清理都先预览，确认之后才删除。不会自动勾选，对话、登录凭证和模型文件都不会动。
 
 ## 这些图是做什么的
+
+![首页](assets/guide/home.png)
+
+首页。三张卡片分别进入 C 盘清理、垃圾清理和 AI 缓存。
 
 ![C盘清理扫描](assets/guide/c-drive-scan.png)
 
